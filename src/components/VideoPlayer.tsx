@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Button } from './ui/button';
@@ -31,36 +31,45 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc }) => {
           }
         };
         video.addEventListener('play', () => {
-            requestAnimationFrame(drawFrame);
-          });
+          requestAnimationFrame(drawFrame);
+        });
       });
     }
   }, [showOverlay]);
 
   return (
     <div>
-        <Button onClick={() => setShowOverlay(!showOverlay)} variant="default" size="default">
-            {showOverlay ? 'Hide Focus Peaking' : 'Show Focus Peaking'}
-        </Button>
-        <div style={{ position: 'relative', width: '640px', height: '360px' }}>
-            <video ref={videoRef} src={videoSrc} width="640" height="360" controls />
-            <canvas
-                ref={canvasRef}
-                width="640"
-                height="360"
-                style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                display: showOverlay ? 'block' : 'none',
-                pointerEvents: 'none',
-                backgroundColor: 'transparent',
-                zIndex: 2
-                }}
-            />
-        </div>
+      <Button
+        onClick={() => setShowOverlay(!showOverlay)}
+        variant="default"
+        size="default"
+      >
+        {showOverlay ? 'Hide Focus Peaking' : 'Show Focus Peaking'}
+      </Button>
+      <div style={{ position: 'relative', width: '640px', height: '360px' }}>
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          width="640"
+          height="360"
+          controls
+        />
+        <canvas
+          ref={canvasRef}
+          width="640"
+          height="360"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            display: showOverlay ? 'block' : 'none',
+            pointerEvents: 'none',
+            backgroundColor: 'transparent',
+            zIndex: 2,
+          }}
+        />
+      </div>
     </div>
-    
   );
 };
 

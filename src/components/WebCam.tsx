@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Button } from './ui/button';
@@ -16,13 +16,14 @@ const WebcamFocusPeaking: React.FC = () => {
     const context = canvas?.getContext('2d');
 
     if (video && canvas && context) {
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
           video.srcObject = stream;
           video.play();
         })
-        .catch(err => {
-          console.error("Error accessing webcam: ", err);
+        .catch((err) => {
+          console.error('Error accessing webcam: ', err);
         });
 
       video.addEventListener('loadedmetadata', () => {
@@ -53,11 +54,28 @@ const WebcamFocusPeaking: React.FC = () => {
 
   return (
     <div>
-      <Button onClick={() => setShowOverlay(!showOverlay)} variant="default" size="default">
+      <Button
+        onClick={() => setShowOverlay(!showOverlay)}
+        variant="default"
+        size="default"
+      >
         {showOverlay ? 'Hide Focus Peaking' : 'Show Focus Peaking'}
       </Button>
-      <div style={{ position: 'relative', width: `${dimensions.width}px`, height: `${dimensions.height}px` }}>
-        <video ref={videoRef} width={dimensions.width} height={dimensions.height} autoPlay muted style={{ zIndex: 1 }} />
+      <div
+        style={{
+          position: 'relative',
+          width: `${dimensions.width}px`,
+          height: `${dimensions.height}px`,
+        }}
+      >
+        <video
+          ref={videoRef}
+          width={dimensions.width}
+          height={dimensions.height}
+          autoPlay
+          muted
+          style={{ zIndex: 1 }}
+        />
         <canvas
           ref={canvasRef}
           width={dimensions.width}
@@ -69,7 +87,7 @@ const WebcamFocusPeaking: React.FC = () => {
             display: showOverlay ? 'block' : 'none',
             pointerEvents: 'none',
             backgroundColor: 'transparent',
-            zIndex: 2
+            zIndex: 2,
           }}
         />
       </div>

@@ -1,4 +1,5 @@
 ## Getting Started
+
 First, we need to install our dependencies with:
 
 ```bash
@@ -24,6 +25,7 @@ This is the base functionality of the Focus-Peaking app to view the focus peakin
 This is your cam with Focus-peaking added.
 
 ## Approach
+
 For this project, I used NextJs as my React Framework and dabbled with shadcdn for components.
 
 For Focus peaking, I didn't have much experience with this concept. I did a bit of research, and found an interesting algorithm for this, which is the Sobel algorithm: https://paulbourke.net/miscellaneous/focuspeaking/
@@ -35,4 +37,3 @@ Focus Peaking off
 
 Focus Peaking on
 ![C61C5AF2-D9D9-4DC8-B5DC-A451CDAD7E90](https://github.com/user-attachments/assets/b512d926-407f-4ddb-ae79-5020a4a3cad1)
-
