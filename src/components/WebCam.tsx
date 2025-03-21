@@ -54,13 +54,15 @@ const WebcamFocusPeaking: React.FC = () => {
 
   return (
     <div>
-      <Button
-        onClick={() => setShowOverlay(!showOverlay)}
-        variant="default"
-        size="default"
-      >
-        {showOverlay ? 'Hide Focus Peaking' : 'Show Focus Peaking'}
-      </Button>
+      <div style={{ marginBottom: '2rem' }}>
+        <Button
+            onClick={() => setShowOverlay(!showOverlay)}
+            variant="default"
+            size="default"
+        >
+            {showOverlay ? 'Hide Focus Peaking' : 'Show Focus Peaking'}
+        </Button>
+      </div>
       <div
         style={{
           position: 'relative',
